@@ -44,10 +44,11 @@ class Controller():
         vargs = vars(args)
         IS = vargs.pop('IS')
         GF = vargs.pop('gene_file')
+        gene_name = vargs.pop('gene_name')
 
         # Read the genes file
         logging.debug('Loading genes')
-        scaff_2_gene_database, scaff2gene2sequence = parse_genes(GF, **vargs)
+        scaff_2_gene_database, scaff2gene2sequence = parse_genes(GF, gene_name, **vargs)
         GdbP = pd.concat([x for x in scaff_2_gene_database.values()])
 
         # Calculate all your parallelized gene-level stuff
@@ -759,7 +760,7 @@ def parse_genes(gene_file_loc, **kwargs):
         return parse_prodigal_genes(gene_file_loc)
 
     elif ((gene_file_loc[-3:] == '.gb') | (gene_file_loc[-4:] == '.gbk')):
-        return parse_genbank_genes(gene_file_loc)
+        return parse_genbank_genes(gene_file_loc, **kwargs)
 
     else:
         print("I dont know how to process {0}".format(gene_file_loc))
