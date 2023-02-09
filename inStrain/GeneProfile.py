@@ -759,7 +759,7 @@ def parse_genes(gene_file_loc, **kwargs):
     if ((gene_file_loc[-4:] == '.fna') | (gene_file_loc[-3:] == '.fa')):
         return parse_prodigal_genes(gene_file_loc)
 
-    elif ((gene_file_loc[-3:] == '.gb') | (gene_file_loc[-4:] == '.gbk')):
+    elif ((gene_file_loc[-3:] == '.gb') | (gene_file_loc[-4:] == '.gbk') | (gene_file_loc[-5:] == '.gbff')):
         return parse_genbank_genes(gene_file_loc, **kwargs)
 
     else:
