@@ -809,7 +809,7 @@ def parse_prodigal_genes(gene_fasta):
 
     return scaff2geneinfo, scaff2gene2sequence
 
-def parse_genbank_genes(gene_file, gene_name='gene'):
+def parse_genbank_genes(gene_file, gene_name='gene', **kwargs):
     '''
     Parse a genbank file. Gets features marked as CDS
     '''
