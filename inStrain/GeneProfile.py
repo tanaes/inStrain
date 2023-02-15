@@ -746,7 +746,7 @@ class Command():
     def __init__(self):
         pass
 
-def parse_genes(gene_file_loc, **kwargs):
+def parse_genes(gene_file_loc, gene_name, **kwargs):
     '''
     Parse a file of genes based on the file extention.
 
@@ -760,7 +760,7 @@ def parse_genes(gene_file_loc, **kwargs):
         return parse_prodigal_genes(gene_file_loc)
 
     elif ((gene_file_loc[-3:] == '.gb') | (gene_file_loc[-4:] == '.gbk') | (gene_file_loc[-5:] == '.gbff')):
-        return parse_genbank_genes(gene_file_loc, **kwargs)
+        return parse_genbank_genes(gene_file_loc, gene_name)
 
     else:
         print("I dont know how to process {0}".format(gene_file_loc))
