@@ -87,7 +87,7 @@ class BamProfileController(object):
         gene_name = self.kwargs.get('gene_name')
 
         inStrain.logUtils.log_checkpoint('Profile', 'Loading_genes', 'start')
-        scaff2geneinfo, scaff2gene2sequence = inStrain.GeneProfile.parse_genes(gene_file, gene_name, **self.kwargs)
+        scaff2geneinfo, scaff2gene2sequence = inStrain.GeneProfile.parse_genes(gene_file, gene_name)
 
         # Filter gene database to relevant scaffolds
         scaffs = set(self.scaff2sequence.keys())
