@@ -746,7 +746,7 @@ class Command():
     def __init__(self):
         pass
 
-def parse_genes(gene_file_loc, gene_name, **kwargs):
+def parse_genes(gene_file_loc, gene_name):
     '''
     Parse a file of genes based on the file extention.
 
